@@ -23,4 +23,17 @@ describe('monkeyIslandModel', () => {
             expect(chars).toHaveLength(3);
         });
     });
+
+    describe('remove()', () => {
+        it('should remove a character from the db', async () => {
+            let char = await Chars.add({ id: 1, name: 'Largo LaGrande'});
+            expect(char.name).toBe('Largo LaGrande');
+
+            char = await Chars.add({ id: 2, name: 'Captain Kate Capsize'});
+            expect(char.name).toBe('Captain Kate Capsize');
+            
+            char = await Chars.remove({ id: 1 });
+            expect(char).toBeUndefined();
+        });
+    });
 });
