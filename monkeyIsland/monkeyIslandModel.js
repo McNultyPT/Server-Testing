@@ -3,7 +3,8 @@ const db = require('../data/dbConfig.js');
 module.exports = {
     findById,
     add,
-    remove
+    remove,
+    find
 };
 
 function findById(id) {
@@ -12,8 +13,8 @@ function findById(id) {
         .first();
 }
 
-async function add(hub) {
-    const [id] = await db('hubs').insert(hub);
+async function add(char) {
+    const [id] = await db('monkeyIsland').insert(char);
 
     return findById(id);
 }
@@ -22,4 +23,8 @@ function remove(id) {
     return db('monkeyIsland')
         .where({ id })
         .del();
+}
+
+function find() {
+    return db('monkeyIsland');
 }
