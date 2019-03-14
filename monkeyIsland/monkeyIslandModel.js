@@ -14,9 +14,9 @@ function findById(id) {
 }
 
 async function add(char) {
-    const [id] = await db('monkeyIsland').insert(char);
+    const id = await db('monkeyIsland').insert(char);
 
-    return findById(id);
+    return id;
 }
 
 function remove(id) {
