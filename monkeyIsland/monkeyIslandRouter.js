@@ -1,5 +1,5 @@
 const router = require('express').Router();
 
-const db = require('../data/dbConfig.js');
+const Chars = require('./monkeyIslandModel.js');
 
 module.exports = router;
